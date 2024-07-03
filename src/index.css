@@ -1,0 +1,61 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+body {
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'BladeRunner';
+  src: url('./fonts/bldrnnr.ttf') format('truetype');
+}
+
+.blade-runner-font {
+  font-family: 'BladeRunner', sans-serif;
+}
+
+.text-werenc-orange {
+  color: #FF8C00;
+}
+
+.bg-werenc-orange {
+  background-color: #FF8C00;
+}
+
+.text-werenc-green {
+  color: #94D13C;
+}
+
+.bg-werenc-green {
+  background-color: #94D13C;
+}
+
+.text-werenc-black {
+  color: #212121;
+}
+
+.bg-werenc-black {
+  background-color: #212121;
+}
+
+.hover-bg-werenc-orange:hover {
+  background-color: red;
+}
+
+.content {
+  padding-top: 6rem;
+}
+
+.carousel-container {
+  width: 100%;
+  margin: auto;
+}
+
+.carousel-image {
+  margin: 0 auto;
+  height: 300px;
+}
