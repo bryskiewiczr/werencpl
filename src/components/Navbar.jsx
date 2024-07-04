@@ -38,7 +38,7 @@ const Navbar = () => {
   return (
     <>
       <nav className={`fixed w-full top-0 left-0 z-50 transition-colors duration-300 ${scrolled || !isHomePage || menuOpen ? 'bg-zinc-800 shadow-zinc-800 shadow-md' : 'bg-transparent'}`}>
-        <div className="container mx-auto p-12 py-12 flex justify-between items-center h-16">
+        <div className="container mx-auto p-12 flex justify-between items-center h-16">
           <h1 className={`text-white text-5xl blade-runner-font flex items-center`}>
             <Link to="/"><span>werenc</span><span className="text-werenc-orange">.pl</span></Link>
           </h1>

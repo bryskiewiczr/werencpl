@@ -3,17 +3,16 @@ import { useParams } from 'react-router-dom';
 import propellerData from '../data/propellerData';
 import ImageCarousel from "../components/ImageCarousel";
 
-import weightIcon from "../assets/icons/feathers.png"
+import lightIcon from "../assets/icons/feathers.png"
 import quietIcon from "../assets/icons/silence.png"
 import mirrorIcon from "../assets/icons/reflect.png"
 import propellerIcon from "../assets/icons/propeller.png"
+import weightIcon from "../assets/icons/weighing-machine.png"
+import lengthIcon from "../assets/icons/measuring-tape.png"
 
 const PropellerPage = () => {
   const {id} = useParams();
   const propeller = propellerData.find(p => p.id === id);
-
-  const [SeriesROpen = false, setSeriesROpen = false] = useState(false);
-
 
   if (!propeller) {
     return (
@@ -26,110 +25,123 @@ const PropellerPage = () => {
   const images = propeller.photoList || [];
   const hasEngineList = propeller.hasEngineList || false;
 
-//   return (
-//     <div className="content container mx-auto p-6">
-//       <div className="max-w-6xl mx-auto p-4 bg-white shadow-lg rounded-lg">
-//
-//         <div className="flex flex-col md:flex-row">
-//
-//           <div className="flex flex-col w-full md:w-1/2 p-4">
-//             <h1 className="text-5xl font-bold mb-4 text-gray-800">{propeller.name}</h1>
-//
-//             <hr className="pb-4"/>
-//
-//             <p className="text-lg text-gray-700 pb-4">{propeller.desc}</p>
-//
-//             <hr className="pb-4"/>
-//
-//             <p className="text-lg text-zinc-800 pb-2">Parametry:</p>
-//             <p className="text-lg text-zinc-800 pb-2"><span className="font-bold">Długość:</span> {propeller.length}</p>
-//             <p className="text-lg text-zinc-800 pb-4"><span className="font-bold">Waga:</span> {propeller.weight}</p>
-//
-//             {hasEngineList && (
-//               <div className="pb-4">
-//                 <p className="text-lg text-gray-700 font-bold">Przeznaczenie:</p>
-//                 <ul className="list-disc list-inside text-lg text-gray-700 pl-4">
-//                   {propellerData.map((propeller, index) => (
-//                     propeller.engineList && propeller.engineList.map((engine, engineIndex) => (
-//                       <li key={`${index}-${engineIndex}`}>{engine}</li>
-//                     ))
-//                   ))}
-//                 </ul>
-//               </div>
-//             )}
-//
-//             <p className="text-lg text-gray-700">{propeller.descExtended}</p>
-//
-//             <div className="mt-6 md:hidden">
-//               <ImageCarousel images={images}/>
-//             </div>
-//           </div>
-//
-//           <div className="hidden md:flex flex-col w-1/2 p-4">
-//             <ImageCarousel images={images}/>
-//           </div>
-//
-//         </div>
-//
-//         <div className="flex flex-col md:flex-row justify-around pt-12">
-//           <div className="flex flex-col items-center">
-//             <div className="flex flex-row">
-//               <img src={weightIcon} width={80} alt="weight"/>
-//             </div>
-//             <div className="flex flex-row">
-//               <p>bardzo lekkie</p>
-//             </div>
-//           </div>
-//           <div className="flex flex-col items-center md:pt-0 pt-6">
-//             <div className="flex flex-row">
-//               <img src={propellerIcon} width={80} alt="weight"/>
-//             </div>
-//             <div className="flex flex-row">
-//               <p>generują duży ciąg</p>
-//             </div>
-//           </div>
-//           <div className="flex flex-col items-center md:pt-0 pt-6">
-//             <div className="flex flex-row">
-//               <img src={quietIcon} width={80} alt="weight"/>
-//             </div>
-//             <div className="flex flex-row">
-//               <p>cicha praca</p>
-//             </div>
-//           </div>
-//           <div className="flex flex-col items-center md:pt-0 pt-6">
-//             <div className="flex flex-row">
-//               <img src={mirrorIcon} width={80} alt="weight"/>
-//             </div>
-//             <div className="flex flex-row">
-//               <p>symetrycznie dzielone</p>
-//             </div>
-//           </div>
-//         </div>
-//
-//         <div className="flex flex-col md:flex-row w-full mx-auto pt-12">
-//           <img src={propeller.photo} alt={propeller.name} className="rounded-lg shadow-lg"/>
-//         </div>
-//
-//       </div>
-//     </div>
-//   );
-// };
-
   return (
     <>
       <div className="content container mx-auto p-6">
         <div className="max-w-6xl mx-auto p-4">
           <div className="flex flex-row items-center">
             <div className="flex-grow">
-              <h1 className="text-2xl md:text-5xl font-bold">Werenc R1</h1>
-              <p className="text-2xl font-regular pt-5">{propeller.desc}</p>
+              <h1 className="text-4xl md:text-6xl font-bold">{propeller.name}</h1>
+              <p className="text-lg md:text-2xl font-regular">{propeller.desc}</p>
             </div>
-            <div className="flex-shrink-0 w-1/3 md:w-1/3 lg:w-1/3 p-4">
-              <div className="relative overflow-hidden bg-white rounded-lg shadow-lg aspect-w-1 aspect-h-1">
+            <div className="flex-shrink-0 w-1/3 md:w-1/2 lg:w-1/2 p-4">
+              <div className="relative overflow-hidden aspect-w-3 aspect-h-1">
                 <img src={propeller.photo} alt={propeller.name} className="object-contain w-full h-full"/>
               </div>
             </div>
           </div>
+
+          <hr className="mt-10"/>
+          <div className="flex flex-row">
+            <div className="flex flex-col items-center">
+              <div className="flex flex-row">
+                <h1 className="text-2xl md:text-3xl font-bold py-8">Opis</h1>
+              </div>
+              <div className="flex flex-row text-justify">
+                <p>{propeller.descExtended}</p>
+              </div>
+            </div>
+          </div>
+
+          <hr className="mt-10"/>
+          <div className="flex flex-row">
+            <div className="flex flex-col flex-grow items-center">
+              <div className="flex flex-row">
+                <h1 className="text-2xl md:text-3xl font-bold py-8">Parametry techniczne</h1>
+              </div>
+              <div className="flex  flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-20">
+                <div className="flex flex-col items-center">
+                  <div className="flex flex-row">
+                    <img src={weightIcon} width={80} alt="weight"/>
+                  </div>
+                  <div className="flex flex-row">
+                    <p className="italic font-bold pt-3">{propeller.weight}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="flex flex-row">
+                    <img src={lengthIcon} width={80} alt="weight"/>
+                  </div>
+                  <div className="flex flex-row">
+                    <p className="italic font-bold pt-3">{propeller.length}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {hasEngineList && (
+            <>
+              <hr className="mt-10"/>
+              <div className="flex flex-row">
+                <div className="flex flex-col flex-grow items-center">
+                  <div className="flex flex-row">
+                    <h1 className="text-2xl md:text-3xl font-bold py-8">Przeznaczenie</h1>
+                  </div>
+                  <ul>
+                    <li>silniki dla których przeznaczone jest śmigło</li>
+                  </ul>
+                </div>
+              </div>
+            </>
+          )}
+
+          <hr className="mt-10"/>
+          <div className="flex flex-row">
+            <div className="flex flex-col flex-grow items-center">
+              <div className="flex flex-row">
+                <h1 className="text-2xl md:text-3xl font-bold py-8">Cechy</h1>
+              </div>
+              <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-20 pt-2">
+                <div className="flex flex-col items-center">
+                  <div className="flex flex-row">
+                    <img src={lightIcon} width={80} alt="weight"/>
+                  </div>
+                  <div className="flex flex-row">
+                    <p className="italic font-bold pt-3">niezwykle lekkie</p>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="flex flex-row">
+                    <img src={propellerIcon} width={80} alt="weight"/>
+                  </div>
+                  <div className="flex flex-row">
+                    <p className="italic font-bold pt-3">generują duży ciąg</p>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="flex flex-row">
+                    <img src={quietIcon} width={80} alt="weight"/>
+                  </div>
+                  <div className="flex flex-row">
+                    <p className="italic font-bold pt-3">bardzo ciche</p>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="flex flex-row">
+                    <img src={mirrorIcon} width={80} alt="weight"/>
+                  </div>
+                  <div className="flex flex-row">
+                    <p className="italic font-bold pt-3">symetrycznie dzielone</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr className="mt-10"/>
+          <h1 className="text-2xl md:text-3xl font-bold py-8 text-center">Galeria</h1>
+          <ImageCarousel images={images}/>
         </div>
       </div>
     </>
