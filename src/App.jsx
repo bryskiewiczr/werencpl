@@ -9,6 +9,8 @@ import ContactPage from "./pages/ContactPage.jsx";
 import DealersPage from "./pages/DealersPage.jsx";
 import ServicePage from "./pages/ServicePage.jsx";
 import ProductsPage from "./pages/ProductsPage.jsx";
+import PropellersSeriesPage from "./pages/PropellerSeriesPage.jsx";
+import PropellersPage from "./pages/PropellersPage.jsx";
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/products" element={<ProductsPage />} />
+                <Route path="/products/propellerSeries" element={<PropellersSeriesPage />} />
+                <Route path="/products/propellerSeries/:id" element={<PropellersPage />} />
                 <Route path="/propeller/:id" element={<PropellerPage />} />
                 <Route path="/service" element={<ServicePage />} />
                 <Route path="/dealers" element={<DealersPage />} />

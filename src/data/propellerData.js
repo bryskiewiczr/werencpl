@@ -1,4 +1,4 @@
-import rSeriesMain from '../assets/propellers/R/R_main.jpg'
+import rSeriesMain from '../assets/propellers/R/R-main.jpg'
 
 import rSeriesShowcase1 from "../assets/propellers/R/1.jpg"
 import rSeriesShowcase2 from "../assets/propellers/R/2.jpg"
