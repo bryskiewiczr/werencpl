@@ -76,11 +76,11 @@ const Navbar = () => {
             <li><a href="#">Manetki</a></li>
             <li><a href="#">Serwis</a></li>
             <li><a href="#">Dealerzy</a></li>
-            <li><a href="#">Kontakt</a></li>
+            <li><Link to={"/contact"}>Kontakt</Link></li>
           </ul>
         </div>
         <ul ref={menuRef} className={`lg:hidden bg-zinc-800 text-center uppercase text-white text-md overflow-hidden transition-all duration-300 ${menuOpen ? 'pb-2 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <li><a href="#" className="block px-4 py-2">Home</a></li>
+          <li><Link className="block px-4 py-2" to={"/"}>Home</Link></li>
           <li><a href="#" className="block px-4 py-2">Aktualności</a></li>
           <li className="relative">
             <a href="#" onClick={() => setDropdownOpen(!dropdownOpen)} className="block px-4 py-2">
@@ -99,7 +99,7 @@ const Navbar = () => {
           <li><a href="#" className="block px-4 py-2">Manetki</a></li>
           <li><a href="#" className="block px-4 py-2">Serwis</a></li>
           <li><a href="#" className="block px-4 py-2">Dealerzy</a></li>
-          <li><a href="#" className="block px-4 py-2">Kontakt</a></li>
+          <li><Link className="block px-4 py-2" to={"/contact"}>Kontakt</Link></li>
         </ul>
       </nav>
     </>

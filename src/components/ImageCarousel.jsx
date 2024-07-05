@@ -5,12 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 const ImageCarousel = ({ images }) => {
 
-  function OrangeArrow(props) {
+  function BlackArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", backgroundColor: "orange", borderRadius: "100%" }}
+        style={{ ...style, display: "block", backgroundColor: "darkgrey", borderRadius: "100%" }}
         onClick={onClick}
       />
     );
@@ -26,8 +26,8 @@ const ImageCarousel = ({ images }) => {
     autoplay: true,
     autoplaySpeed: 3000,
     adaptiveHeight: true,
-    nextArrow: <OrangeArrow />,
-    prevArrow: <OrangeArrow />,
+    nextArrow: <BlackArrow />,
+    prevArrow: <BlackArrow />,
   };
 
   return (

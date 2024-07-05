@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row text-center lg:text-right space-y-4 lg:space-y-0 lg:space-x-10">
           <a className="hover:text-zinc-200 transition-colors duration-300" href="callto:+48791068035">
             <FontAwesomeIcon icon={faPhone} />
-            <span className="pl-2">+48 791 068 035</span>
+            <span className="pl-2">(+48) 791 068 035</span>
           </a>
           <a className="hover:text-zinc-200 transition-colors duration-300" href="mailto:mwerenc@wp.pl">
             <FontAwesomeIcon icon={faEnvelope} />

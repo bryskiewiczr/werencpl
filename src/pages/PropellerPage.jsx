@@ -27,7 +27,7 @@ const PropellerPage = () => {
 
   return (
     <>
-      <div className="content container mx-auto p-6">
+      <div className="content container mx-auto p-6 mt-10 md:mt-0 max-w-6xl">
         <div className="max-w-6xl mx-auto p-4">
           <div className="flex flex-row items-center">
             <div className="flex-grow">
