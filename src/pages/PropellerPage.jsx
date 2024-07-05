@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import ImageCarousel from "../components/ImageCarousel";
 
 import productsData from '../data/productsData.js';
@@ -12,9 +12,9 @@ import weightIcon from "../assets/icons/weighing-machine.png"
 import lengthIcon from "../assets/icons/measuring-tape.png"
 
 const PropellerPage = () => {
-  const { id } = useParams();
-  const series = productsData.categories.propellers.series[0];
-  const propeller = series.products.find(p => p.id === id);
+  const { seriesId, propellerId } = useParams();
+  const series = productsData.categories.propellers.series.find(s => s.id === seriesId);
+  const propeller = series.products.find(p => p.id === propellerId);
 
   if (!propeller) {
     return (
@@ -31,6 +31,12 @@ const PropellerPage = () => {
     <>
       <div className="content container mx-auto p-6 mt-10 md:mt-0 max-w-6xl">
         <div className="max-w-6xl mx-auto p-4">
+          <div className="flex flex-row mt-10 mb-4">
+            <h1 className="text-2xl md:text-3xl font-black text-left md:text-center"><span
+              className="font-normal"><Link to="/products">Produkty WERENC</Link> / <Link
+              to="/products/propellerSeries">Serie śmigieł WERENC</Link> / <Link
+              to={`/products/propellerSeries/${series.id}`}>{series.name}</Link> / </span>{propeller.name}</h1>
+          </div>
           <div className="flex flex-row items-center">
             <div className="flex-grow">
               <h1 className="text-4xl md:text-6xl font-bold">{propeller.name}</h1>
@@ -38,12 +44,12 @@ const PropellerPage = () => {
             </div>
             <div className="flex-shrink-0 w-1/3 md:w-1/2 lg:w-1/2 p-4">
               <div className="relative overflow-hidden aspect-w-3 aspect-h-1">
-                <img src={propeller.photo} alt={propeller.name} className="object-contain w-full h-full" />
+                <img src={propeller.photo} alt={propeller.name} className="object-contain w-full h-full"/>
               </div>
             </div>
           </div>
 
-          <hr className="mt-10" />
+          <hr className="mt-10"/>
           <div className="flex flex-row">
             <div className="flex flex-col items-center">
               <div className="flex flex-row">
@@ -51,14 +57,17 @@ const PropellerPage = () => {
               </div>
               <div className="flex flex-row text-justify">
                 <p>{propeller.descExt}</p>
-                {propeller.additionalDetails && (
-                  <p>{propeller.additionalDetails}</p>
-                )}
               </div>
+                {propeller.additionalDetails && (
+                  <div className="flex flex-row text-justify mt-10">
+                    <p>{propeller.additionalDetails}</p>
+                  </div>
+                )}
+
             </div>
           </div>
 
-          <hr className="mt-10" />
+          <hr className="mt-10"/>
           <div className="flex flex-row">
             <div className="flex flex-col flex-grow items-center">
               <div className="flex flex-row">
@@ -67,7 +76,7 @@ const PropellerPage = () => {
               <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-20">
                 <div className="flex flex-col items-center">
                   <div className="flex flex-row">
-                    <img src={weightIcon} width={80} alt="weight" />
+                    <img src={weightIcon} width={80} alt="weight"/>
                   </div>
                   <div className="flex flex-row">
                     <p className="italic font-bold pt-3">{propeller.weight}</p>
@@ -75,7 +84,7 @@ const PropellerPage = () => {
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="flex flex-row">
-                    <img src={lengthIcon} width={80} alt="length" />
+                    <img src={lengthIcon} width={80} alt="length"/>
                   </div>
                   <div className="flex flex-row">
                     <p className="italic font-bold pt-3">{propeller.length}</p>
@@ -87,7 +96,7 @@ const PropellerPage = () => {
 
           {hasEngineList && (
             <>
-              <hr className="mt-10" />
+              <hr className="mt-10"/>
               <div className="flex flex-row">
                 <div className="flex flex-col flex-grow items-center">
                   <div className="flex flex-row">
@@ -103,7 +112,7 @@ const PropellerPage = () => {
             </>
           )}
 
-          <hr className="mt-10" />
+          <hr className="mt-10"/>
           <div className="flex flex-row">
             <div className="flex flex-col flex-grow items-center">
               <div className="flex flex-row">
@@ -112,7 +121,7 @@ const PropellerPage = () => {
               <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-20 pt-2">
                 <div className="flex flex-col items-center">
                   <div className="flex flex-row">
-                    <img src={lightIcon} width={80} alt="light" />
+                    <img src={lightIcon} width={80} alt="light"/>
                   </div>
                   <div className="flex flex-row">
                     <p className="italic font-bold pt-3">niezwykle lekkie</p>
@@ -120,7 +129,7 @@ const PropellerPage = () => {
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="flex flex-row">
-                    <img src={propellerIcon} width={80} alt="propeller" />
+                    <img src={propellerIcon} width={80} alt="propeller"/>
                   </div>
                   <div className="flex flex-row">
                     <p className="italic font-bold pt-3">generują duży ciąg</p>
@@ -128,7 +137,7 @@ const PropellerPage = () => {
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="flex flex-row">
-                    <img src={quietIcon} width={80} alt="quiet" />
+                    <img src={quietIcon} width={80} alt="quiet"/>
                   </div>
                   <div className="flex flex-row">
                     <p className="italic font-bold pt-3">bardzo ciche</p>
@@ -136,7 +145,7 @@ const PropellerPage = () => {
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="flex flex-row">
-                    <img src={mirrorIcon} width={80} alt="mirror" />
+                    <img src={mirrorIcon} width={80} alt="mirror"/>
                   </div>
                   <div className="flex flex-row">
                     <p className="italic font-bold pt-3">symetrycznie dzielone</p>
@@ -146,9 +155,9 @@ const PropellerPage = () => {
             </div>
           </div>
 
-          <hr className="mt-10" />
+          <hr className="mt-10"/>
           <h1 className="text-2xl md:text-3xl font-bold py-8 text-center">Galeria</h1>
-          <ImageCarousel images={images} />
+          <ImageCarousel images={images}/>
         </div>
       </div>
     </>

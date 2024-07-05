@@ -23,8 +23,9 @@ const App = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/products" element={<ProductsPage />} />
                 <Route path="/products/propellerSeries" element={<PropellersSeriesPage />} />
-                <Route path="/products/propellerSeries/:id" element={<PropellersPage />} />
-                <Route path="/propeller/:id" element={<PropellerPage />} />
+                <Route exact path="/products/propellerSeries/:seriesId" element={<PropellersPage />} />
+                <Route exact path="/products/propellerSeries/:seriesId/:propellerId" element={<PropellerPage />} />
+                {/*<Route path="/propeller/:id" element={<PropellerPage />} />*/}
                 <Route path="/service" element={<ServicePage />} />
                 <Route path="/dealers" element={<DealersPage />} />
                 <Route path="/contact" element={<ContactPage />} />
