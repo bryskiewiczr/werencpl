@@ -104,7 +104,7 @@ const HomePageContent = () => {
           </div>
         </div>
         <div className="flex flex-row mt-24">
-          <a className="w-full" href="/contact"><button className="btn rounded-none text-xl md:text-3xl uppercase bg-zinc-800 hover:bg-amber-500 text-amber-500 hover:text-zinc-800 w-full h-12 md:h-24">Skontaktuj się z nami</button></a>
+          <a className="w-full" href="/contact"><button className="btn rounded-none text-xl md:text-3xl uppercase bg-zinc-800 hover:bg-amber-500 text-amber-500 hover:text-zinc-800 w-full h-12 md:h-16">Skontaktuj się z nami</button></a>
         </div>
       </div>
     </>

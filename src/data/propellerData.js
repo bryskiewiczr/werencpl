@@ -1,5 +1,3 @@
-import reactSvg from '../assets/react.svg';
-
 import rSeriesMain from '../assets/propellers/R/R_main.jpg'
 
 import rSeriesShowcase1 from "../assets/propellers/R/1.jpg"
