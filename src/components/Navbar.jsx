@@ -1,13 +1,17 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {Link, useLocation} from "react-router-dom";
 import propellerData from "../data/propellerData.js";
+import productsData from "../data/productsData.js";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [propellerMenuOpen, setPropellerMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
   const location = useLocation();
+
+  const propellerSeries = productsData.categories.propellers.series;
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -17,11 +21,25 @@ const Navbar = () => {
     }
   };
 
+  const togglePropellerMenu = () => {
+    setPropellerMenuOpen(!propellerMenuOpen);
+  }
+
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target) && buttonRef.current && !buttonRef.current.contains(event.target)) {
       setMenuOpen(false);
+      closePropellerMenu();
     }
   };
+
+  const closeMobileNavbar = () => {
+    setMenuOpen(false);
+    closePropellerMenu();
+  }
+
+  const closePropellerMenu = () => {
+    setPropellerMenuOpen(false);
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -75,10 +93,9 @@ const Navbar = () => {
                   Śmigła
                 </a>
                 <ul className="absolute left-0 hidden group-hover:block bg-zinc-800 p-4 rounded-md shadow-lg">
-                  {propellerData.map(propeller => (
-                    <li key={propeller.id} className="py-1">
-                      <Link className="hover:text-amber-500 whitespace-nowrap"
-                            to={`/propeller/${propeller.id}`}>{propeller.name}</Link>
+                  {propellerSeries.map(series => (
+                    <li key={series.id} className="py-1">
+                      <Link className="hover:text-amber-500 whitespace-nowrap" to={`/products/propellerSeries/${series.id}`}>{series.name}</Link>
                     </li>
                   ))}
                 </ul>
@@ -105,24 +122,30 @@ const Navbar = () => {
 
         <ul ref={menuRef}
             className={`lg:hidden bg-zinc-800 text-center uppercase text-white text-md overflow-hidden transition-all duration-300 ${menuOpen ? 'pb-2 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <li><Link className="block px-4 py-2" to={"/"}>Home</Link></li>
-          {/*<li><a href="#" className="block px-4 py-2">Aktualności</a></li>*/}
+          <li><Link onClick={closeMobileNavbar} className="block border-zinc-700 border-t border-b px-4 py-4 hover:text-amber-500"
+                    to={"/"}>Home</Link></li>
+          <li><Link onClick={closeMobileNavbar} className="block px-4 py-4 border-zinc-700 border-b hover:text-amber-500"
+                    to={"/products"}>Produkty</Link></li>
           <li className="relative">
-            <a href="#" className="block px-4 py-2">
-              Śmigła
-            </a>
-            <ul className={`bg-zinc-800 ${menuOpen ? 'block' : 'hidden'}`}>
-              {propellerData.map(propeller => (
-                <li key={propeller.id} className="px-4 py-2">
-                  <Link className="hover:text-amber-500" to={`/propeller/${propeller.id}`}>{propeller.name}</Link>
+            <p onClick={togglePropellerMenu}
+                  className="block border-zinc-700 border-b px-4 py-4 hover:text-amber-500"
+                  >Śmigła</p>
+            <ul className={`bg-zinc-700 ${propellerMenuOpen ? 'block' : 'hidden'} transition-all duration-300`}>
+              {propellerSeries.map(series => (
+                <li key={series.id} className="">
+                  <Link onClick={closeMobileNavbar} className="block px-4 py-4 border-zinc-800 border-b hover:text-amber-500 whitespace-nowrap"
+                        to={`/products/propellerSeries/${series.id}`}>{series.name}</Link>
                 </li>
               ))}
             </ul>
           </li>
-          <li><a href="#" className="block px-4 py-2">Manetki</a></li>
-          <li><Link className="block px-4 py-2" to={"/service"}>Serwis</Link></li>
-          <li><Link className="block px-4 py-2" to={"/dealers"}>Dealers</Link></li>
-          <li><Link className="block px-4 py-2" to={"/contact"}>Kontakt</Link></li>
+          <li><Link onClick={closeMobileNavbar} className="block px-4 py-4 border-zinc-700 border-b hover:text-amber-500"
+                    to={"/products/throttle"}>Manetki</Link></li>
+          <li><Link onClick={closeMobileNavbar} className="block px-4 py-4 border-zinc-700 border-b hover:text-amber-500"
+                    to={"/service"}>Serwis</Link></li>
+          <li><Link onClick={closeMobileNavbar} className="block px-4 py-4 border-zinc-700 border-b hover:text-amber-500"
+                    to={"/dealers"}>Dealers</Link></li>
+          <li><Link onClick={closeMobileNavbar} className="block px-4 py-4 pb-2 hover:text-amber-500" to={"/contact"}>Kontakt</Link></li>
         </ul>
 
         {/* end mobile navbar*/}

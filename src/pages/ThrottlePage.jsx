@@ -2,7 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import ImageCarousel from "../components/ImageCarousel";
 import weightIcon from "../assets/icons/weight-icon.png";
-import lengthIcon from "../assets/icons/length-icon.png";
+import heightIcon from "../assets/icons/height-icon.png";
+import widthIcon from "../assets/icons/width-icon.png";
 import materialIcon from "../assets/icons/carbon-icon.png";
 import lightIcon from "../assets/icons/feather-icon.png";
 import wrenchIcon from "../assets/icons/wrench-icon.png"
@@ -69,15 +70,23 @@ const ThrottlePage = () => {
                       <img src={weightIcon} width={80} alt="weight"/>
                     </div>
                     <div className="flex flex-row">
-                      <p className="italic font-bold pt-3">100g</p>
+                      <p className="italic font-bold pt-3">70g</p>
                     </div>
                   </div>
                   <div className="flex flex-col items-center">
                     <div className="flex flex-row">
-                      <img src={lengthIcon} width={80} alt="length"/>
+                      <img src={heightIcon} width={80} alt="length"/>
                     </div>
                     <div className="flex flex-row">
-                      <p className="italic font-bold pt-3">23 cm</p>
+                      <p className="italic font-bold pt-3">8 cm</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <div className="flex flex-row">
+                      <img src={widthIcon} width={80} alt="length"/>
+                    </div>
+                    <div className="flex flex-row">
+                      <p className="italic font-bold pt-3">17 cm</p>
                     </div>
                   </div>
                   <div className="flex flex-col items-center">
