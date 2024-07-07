@@ -16,7 +16,7 @@ const PropellerSeriesPage = () => {
               </div>
               <div className="flex flex-wrap -mx-5 mt-12">
                 {propellerSeries.map((series) => (
-                  <Link to={`/products/propellerSeries/${series.id}`} key={series.id} className="w-full sm:w-1/2 px-5 mb-10">
+                  <Link to={`/products/propellerSeries/${series.id}`} key={series.id} className="w-full sm:w-1/3 px-5 mb-10">
                     <div className="bg-white hover:scale-110 transition-transform duration-300 shadow-zinc-800 drop-shadow hover:drop-shadow-2xl rounded-lg p-6">
                       <img src={series.photo} alt={series.name} className="w-full h-auto"/>
                       <h1 className="text-3xl text-center mt-4">{series.name}</h1>

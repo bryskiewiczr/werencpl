@@ -4,12 +4,13 @@ import ImageCarousel from "../components/ImageCarousel";
 
 import productsData from '../data/productsData.js';
 
-import lightIcon from "../assets/icons/feathers.png"
-import quietIcon from "../assets/icons/silence.png"
-import mirrorIcon from "../assets/icons/reflect.png"
-import propellerIcon from "../assets/icons/propeller.png"
-import weightIcon from "../assets/icons/weighing-machine.png"
-import lengthIcon from "../assets/icons/measuring-tape.png"
+import lightIcon from "../assets/icons/feather-icon.png"
+import quietIcon from "../assets/icons/quiet-icon.png"
+import mirrorIcon from "../assets/icons/symmetry-icon.png"
+import propellerIcon from "../assets/icons/propeller-icon.png"
+import weightIcon from "../assets/icons/weight-icon.png"
+import lengthIcon from "../assets/icons/length-icon.png"
+import materialIcon from "../assets/icons/carbon-icon.png"
 
 const PropellerPage = () => {
   const { seriesId, propellerId } = useParams();
@@ -23,6 +24,10 @@ const PropellerPage = () => {
       </div>
     );
   }
+
+  const patentedList = ["UNIVERSAL", "CS3", "S1", "3S1", "L4", "L3"];
+  const hasPatent = patentedList.includes(propeller.id);
+  const hubPatent = propeller.id === "UNIVERSAL";
 
   const images = propeller.photoList || [];
   const hasEngineList = propeller.hasDedicatedEngines || false;
@@ -64,12 +69,24 @@ const PropellerPage = () => {
                   </div>
                 )}
 
+              {hasPatent && (
+                <div className="flex flex-row text-justify mt-10">
+                  <p className="text-red-600 font-bold">Śmigło jest wzorem przemysłowym, zastrzeżonym w Urzędzie Patentowym od marca 2015 roku. Na każdym śmigle widnieje logotyp WERENC.</p>
+                </div>
+              )}
+
+              {hubPatent && (
+                <div className="flex flex-row text-justify">
+                  <p className="text-red-600 font-bold">Piasta jest wzorem użytkowym, zastrzeżonym w Urzędzie Patentowym od marca 2015 roku. Na każdej piaście widnieje logotyp WERENC.</p>
+                </div>
+              )}
+
             </div>
           </div>
 
           <hr className="mt-10"/>
           <div className="flex flex-row">
-            <div className="flex flex-col flex-grow items-center">
+          <div className="flex flex-col flex-grow items-center">
               <div className="flex flex-row">
                 <h1 className="text-2xl md:text-3xl font-bold py-8">Parametry techniczne</h1>
               </div>
@@ -88,6 +105,14 @@ const PropellerPage = () => {
                   </div>
                   <div className="flex flex-row">
                     <p className="italic font-bold pt-3">{propeller.length}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="flex flex-row">
+                    <img src={materialIcon} width={80} alt="length"/>
+                  </div>
+                  <div className="flex flex-row">
+                    <p className="italic font-bold pt-3">{propeller.materials}</p>
                   </div>
                 </div>
               </div>

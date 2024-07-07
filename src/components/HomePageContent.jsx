@@ -43,12 +43,25 @@ const HomePageContent = () => {
           <div className="flex flex-col flex-grow">
             <p className="pl-8 text-zinc-800 text-sm md:text-xl mb-2 max-w-3xl text-justify">
               Śmigła WERENC są symetrycznie dzielone, dzięki czemu w przypadku uszkodzenia jednej z łopat, zawsze
-              istnieje możliwość kupna zamiennika. Jeżeli uszkodzenia są niewielkie, możliwa jest również naprawa śmigła.
+              istnieje możliwość kupna zamiennika. Jeżeli uszkodzenia są niewielkie, możliwa jest również naprawa
+              śmigła.
             </p>
             <p className="pl-8 text-zinc-800 text-sm md:text-xl mb-2 max-w-3xl mt-4 text-justify">
               Firma WERENC non stop pracuje nad nowymi modelami śmigieł i co raz to dokładniejszymi metodami ich
               wykonania.
             </p>
+          </div>
+        </div>
+        <div className="flex flex-row mt-8 items-center">
+          <div className="flex flex-col w-full">
+            <div className="flex flex-row mt-12 mb-6 md:mt-24">
+              <a className="w-full" href="/products/propellerSeries">
+                <button
+                  className="btn rounded-none text-xl md:text-3xl uppercase bg-zinc-800 hover:bg-amber-500 text-amber-500 hover:text-zinc-800 w-full h-12 md:h-16">Zobacz
+                  nasze śmigła
+                </button>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -101,10 +114,25 @@ const HomePageContent = () => {
               Manetka posiada taśmę z rzepem wraz z regulacją, dzięki czemu możesz ją dokładnie dopasować do rozmiaru
               twojej dłoni, bez obaw, że manetka wypadnie z twojej ręki.
             </p>
+            <p className="pl-8 text-zinc-800 text-sm md:text-xl mb-2 max-w-3xl text-justify">
+              <span className="font-bold">Manetka jest wzorem przemysłowym, zastrzeżonym w Urzędzie Patentowym od marca 2015 roku</span>.
+            </p>
+            <p className="pl-8 text-zinc-800 text-sm md:text-xl mb-2 max-w-3xl text-justify">
+              Na każdej manetce widnieje logotyp WERENC.
+            </p>
           </div>
         </div>
-        <div className="flex flex-row mt-24">
-          <a className="w-full" href="/contact"><button className="btn rounded-none text-xl md:text-3xl uppercase bg-zinc-800 hover:bg-amber-500 text-amber-500 hover:text-zinc-800 w-full h-12 md:h-16">Skontaktuj się z nami</button></a>
+        <div className="flex flex-row mt-8 items-center">
+          <div className="flex flex-col w-full">
+            <div className="flex flex-row mt-12 md:mt-24">
+              <a className="w-full" href="/products/throttle">
+                <button
+                  className="btn rounded-none text-xl md:text-3xl uppercase bg-zinc-800 hover:bg-amber-500 text-amber-500 hover:text-zinc-800 w-full h-12 md:h-16">Zobacz
+                  nasze manetki
+                </button>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -15,7 +15,7 @@ const ProductsPage = () => {
                 <h1 className="text-2xl md:text-3xl font-black text-left md:text-center">Produkty WERENC</h1>
               </div>
               <div className="flex flex-row mt-12 space-x-10">
-                <div className="flex flex-col w-1/2">
+                <div className="flex flex-col w-1/3">
                   <Link to={"/products/propellerSeries"}><button>
                     <div className="bg-white hover:scale-110 transition-transform duration-300 shadow-zinc-800 drop-shadow hover:drop-shadow-2xl rounded-lg p-6">
                       <img src={CS3Propeller} alt="Carbonowe śmigło WERENC CS3"/>
@@ -23,14 +23,16 @@ const ProductsPage = () => {
                     </div>
                   </button></Link>
                 </div>
-                <div className="flex flex-col w-1/2">
-                  <button>
-                      <div
+                <div className="flex flex-col w-1/3">
+                  <Link to={"/products/throttle"}>
+                    <button>
+                    <div
                         className="bg-white hover:scale-110 transition-transform duration-300 shadow-zinc-800 drop-shadow hover:drop-shadow-2xl rounded-lg p-6">
                       <img src={Throttle} alt="Carbonowe śmigło WERENC CS3"/>
                       <h1 className="text-3xl">Manetki WERENC</h1>
                     </div>
                   </button>
+                </Link>
                 </div>
               </div>
             </div>

@@ -11,12 +11,15 @@ import ServicePage from "./pages/ServicePage.jsx";
 import ProductsPage from "./pages/ProductsPage.jsx";
 import PropellersSeriesPage from "./pages/PropellerSeriesPage.jsx";
 import PropellersPage from "./pages/PropellersPage.jsx";
+import ScrollToTop from "./functions/ScrollToTop.jsx";
+import ThrottlePage from "./pages/ThrottlePage.jsx";
 
 const App = () => {
   return (
     <>
       <div className="flex flex-col min-h-screen">
         <Router>
+          <ScrollToTop />
           <ScrollProvider>
             <Navbar />
               <Routes>
@@ -25,6 +28,7 @@ const App = () => {
                 <Route path="/products/propellerSeries" element={<PropellersSeriesPage />} />
                 <Route exact path="/products/propellerSeries/:seriesId" element={<PropellersPage />} />
                 <Route exact path="/products/propellerSeries/:seriesId/:propellerId" element={<PropellerPage />} />
+                <Route path="/products/throttle" element={<ThrottlePage />} />
                 {/*<Route path="/propeller/:id" element={<PropellerPage />} />*/}
                 <Route path="/service" element={<ServicePage />} />
                 <Route path="/dealers" element={<DealersPage />} />

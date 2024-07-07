@@ -69,20 +69,22 @@ const Navbar = () => {
               <li className='w-full hover:text-amber-500'>Produkty</li>
             </Link>
             {/*<Link to={"#"}><li className='w-full hover:text-amber-500'>Aktualności</li></Link>*/}
-            <li className="relative group">
-              <a className="cursor-pointer w-full hover:text-amber-500">
-                Śmigła
-              </a>
-              <ul className="absolute left-0 hidden group-hover:block bg-zinc-800 p-4 rounded-md shadow-lg">
-                {propellerData.map(propeller => (
-                  <li key={propeller.id} className="py-1">
-                    <Link className="hover:text-amber-500 whitespace-nowrap"
-                          to={`/propeller/${propeller.id}`}>{propeller.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-            <Link to={"#"}>
+            <Link to={"/products/propellerSeries"}>
+              <li className="relative group">
+                <a className="cursor-pointer w-full hover:text-amber-500">
+                  Śmigła
+                </a>
+                <ul className="absolute left-0 hidden group-hover:block bg-zinc-800 p-4 rounded-md shadow-lg">
+                  {propellerData.map(propeller => (
+                    <li key={propeller.id} className="py-1">
+                      <Link className="hover:text-amber-500 whitespace-nowrap"
+                            to={`/propeller/${propeller.id}`}>{propeller.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            </Link>
+            <Link to={"/products/throttle"}>
               <li className='w-full hover:text-amber-500'>Manetki</li>
             </Link>
             <Link to={"/service"}>
