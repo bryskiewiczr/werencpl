@@ -1,14 +1,12 @@
 import React from 'react';
-import {Link, useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import ImageCarousel from "../components/ImageCarousel";
 import weightIcon from "../assets/icons/weight-icon.png";
 import lengthIcon from "../assets/icons/length-icon.png";
 import materialIcon from "../assets/icons/carbon-icon.png";
 import lightIcon from "../assets/icons/feather-icon.png";
 import wrenchIcon from "../assets/icons/wrench-icon.png"
-import quietIcon from "../assets/icons/quiet-icon.png";
 import wireIcon from "../assets/icons/wire-icon.png";
-import mirrorIcon from "../assets/icons/symmetry-icon.png";
 import handIcon from '../assets/icons/hand-icon.png';
 import productsData from "../data/productsData.js";
 
